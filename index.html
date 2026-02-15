@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Доступ к боту</title>
+
+<style>
+:root{
+  --bg0:#070b12;
+  --bg1:#0e1626;
+  --text:rgba(255,255,255,.92);
+  --muted:rgba(255,255,255,.6);
+  --glass:rgba(255,255,255,.07);
+  --line:rgba(255,255,255,.12);
+  --tg:#2AABEE;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  overflow:hidden;
+
+  background:
+    radial-gradient(900px 700px at 30% 30%, rgba(42,171,238,.12), transparent 60%),
+    radial-gradient(900px 700px at 70% 70%, rgba(140,80,255,.10), transparent 60%),
+    linear-gradient(180deg,var(--bg1),var(--bg0));
+}
+
+/* Сетка */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:50px 50px;
+  pointer-events:none;
+}
+
+/* Контейнер */
+.wrap{
+  width:100%;
+  max-width:420px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+  position:relative;
+  z-index:2;
+}
+
+/* Карточка */
+.card{
+  width:100%;
+  padding:26px 20px 22px;
+  border-radius:20px;
+  text-align:center;
+
+  background:var(--glass);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid var(--line);
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+.title{
+  font-size:14px;
+  color:var(--muted);
+  margin-bottom:18px;
+}
+
+/* Кнопка */
+.btn{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+
+  padding:14px 16px;
+  border:none;
+  border-radius:16px;
+
+  font-size:16px;
+  font-weight:700;
+  color:#fff;
+  cursor:pointer;
+
+  background:var(--tg);
+  box-shadow:0 12px 30px rgba(42,171,238,.25);
+  transition:background .15s ease, transform .1s ease;
+}
+
+.btn:hover{
+  background:#229ED9;
+  transform:translateY(-1px);
+}
+
+.btn:active{
+  transform:translateY(0);
+}
+
+.btn svg{
+  width:20px;
+  height:20px;
+  display:block;
+}
+
+.footer{
+  font-size:12px;
+  color:rgba(255,255,255,.35);
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+  <div class="card">
+    <div class="title">Нажмите кнопку для доступа к боту</div>
+
+    <button class="btn" onclick="openBot()">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M9.04 15.47l-.39 4.34c.56 0 .8-.24 1.09-.53l2.62-2.5 5.44 3.98c1 .55 1.7.26 1.95-.93l3.53-16.54c.3-1.38-.5-1.92-1.48-1.55L1.65 9.32c-1.36.53-1.34 1.29-.23 1.63l5.62 1.75L19.3 5.5c.58-.36 1.1-.16.67.2"/>
+      </svg>
+      Получить зеркало
+    </button>
+  </div>
+
+  <div class="footer">© 2023 dd3 meta</div>
+</div>
+
+<script>
+const BOT_URL="https://t.me/suckdd3"; // вставь своего бота
+
+function openBot(){
+  window.location.href=BOT_URL;
+}
+</script>
+
+</body>
+</html>
